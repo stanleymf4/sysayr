@@ -16,7 +16,7 @@ class CreateUserRoleTable extends Migration
         Schema::create('gsbusrl', function (Blueprint $table) {
             $table->bigIncrements('gsbusrl_id')->comment('identificador de relación usuario role');
             $table->unsignedInteger('gsbusrl_role_id')->comment('identificador de role');
-            $table->foreign('gsbusrl_role_id', 'fk_gsbusrl_gtvrole')->references('gtvtole_id')->on('gtvrole')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('gsbusrl_role_id', 'fk_gsbusrl_gtvrole')->references('gtvrole_id')->on('gtvrole')->onDelete('restrict')->onUpdate('restrict');
             $table->unsignedInteger('gsbusrl_user_id')->comment('identificador de usuario');
             $table->foreign('gsbusrl_user_id', 'fk_gsbusrl_gsbuser')->references('gsbuser_id')->on('gsbuser')->onDelete('restrict')->onUpdate('restrict');
             $table->boolean('gsbusrl_ssts')->comment('estado de la relacion usuario role');

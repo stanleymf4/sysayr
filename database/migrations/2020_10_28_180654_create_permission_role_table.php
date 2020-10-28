@@ -16,7 +16,7 @@ class CreatePermissionRoleTable extends Migration
         Schema::create('gsbpmrl', function (Blueprint $table) {
             $table->bigIncrements('gsbpmrl_id')->comment('identificador de relación permiso role');
             $table->unsignedInteger('gsbpmrl_role_id')->comment('identificador de role');
-            $table->foreign('gsbpmrl_role_id', 'fk_gsbpmrl_gtvrole')->references('gtvtole_id')->on('gtvrole')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('gsbpmrl_role_id', 'fk_gsbpmrl_gtvrole')->references('gtvrole_id')->on('gtvrole')->onDelete('restrict')->onUpdate('restrict');
             $table->unsignedInteger('gsbpmrl_pmss_id')->comment('identificador de permiso');
             $table->foreign('gsbpmrl_pmss_id', 'fk_gsbpmrlgsbuser')->references('gtvpmss_id')->on('gtvpmss')->onDelete('restrict')->onUpdate('restrict');
             $table->timestamps();
