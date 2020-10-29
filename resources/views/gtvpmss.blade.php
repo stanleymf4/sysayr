@@ -1,1 +1,2 @@
-sistema de permisos
+Hola {{ $nombre }}
+<?php echo {{ $nombre }} ?>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GtvpmssController;
+use App\Http\Controllers\StartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [StartController::class, 'index']);
 
 Route::get('/gtvpmss', [GtvpmssController::class, 'index']);
