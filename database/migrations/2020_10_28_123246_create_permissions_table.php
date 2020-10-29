@@ -14,7 +14,8 @@ class CreatePermissionsTable extends Migration
     public function up()
     {
         Schema::create('gtvpmss', function (Blueprint $table) {
-            $table->bigIncrements('gtvpmss_id', 50)->comment('identificador de permisos');
+            $table->bigIncrements('gtvpmss_id')->comment('identificador de permisos');
+            $table->string('gtvpmss_desc', 150)->comment('descripción del permiso');
             $table->string('gtvpmss_slug', 50)->comment('partes de la dirección url');
             $table->timestamps();
         });

@@ -15,7 +15,7 @@ class CreateRoleTable extends Migration
     {
         Schema::create('gtvrole', function (Blueprint $table) {
             $table->bigIncrements('gtvrole_id')->comment('identificador de role');
-            $table->string('gtvrole_desc', 100)->comment('descripción del role');
+            $table->string('gtvrole_desc', 100)->comment('descripción del role')->unique();
             $table->string('gtvrole_user', 30)->comment('usario que modifico el registro');
             $table->timestamps();
         });

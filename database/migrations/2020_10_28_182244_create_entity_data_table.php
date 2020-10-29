@@ -16,7 +16,6 @@ class CreateEntityDataTable extends Migration
         Schema::create('gtvdven', function (Blueprint $table) {
             $table->bigIncrements('gtvdven_id')->comment('Identificador de entidad de visibilidad de datos');
             $table->string('gtvdven_code', 4)->comment('código de entidad');
-            $table->string('gtvdven_desc', 50)->comment('descripción de entidad');
             $table->string('gtvdven_user', 30)->comment('usario que creó o modificó el registro');
             $table->timestamps();
         });
