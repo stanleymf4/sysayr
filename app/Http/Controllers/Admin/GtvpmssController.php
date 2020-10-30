@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Models\Admin\Gtvpmss;
 use Illuminate\Http\Request;
 
 class GtvpmssController extends Controller
@@ -13,7 +15,8 @@ class GtvpmssController extends Controller
      */
     public function index()
     {
-        return 'Listo';
+        $permissions = Gtvpmss::orderBy('gtvpmss_id')->get();
+        return view('admin.permission.index', compact('permissions'));
     }
 
     /**
@@ -23,7 +26,7 @@ class GtvpmssController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.permission.create');
     }
 
     /**

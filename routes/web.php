@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\GtvpmssController;
+use App\Http\Controllers\Admin\GtvpmssController;
 use App\Http\Controllers\StartController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [StartController::class, 'index']);
-
-Route::get('/gtvpmss', [GtvpmssController::class, 'index']);
+Route::get('admin/permission', [GtvpmssController::class, 'index'])->name('permission');
+Route::get('admin/permission/create', [GtvpmssController::class, 'create'])->name('create');
