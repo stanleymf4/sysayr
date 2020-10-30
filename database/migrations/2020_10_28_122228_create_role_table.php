@@ -18,6 +18,8 @@ class CreateRoleTable extends Migration
             $table->string('gtvrole_desc', 100)->comment('descripción del role')->unique();
             $table->string('gtvrole_user', 30)->comment('usario que modifico el registro');
             $table->timestamps();
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_spanish_ci';
         });
     }
 

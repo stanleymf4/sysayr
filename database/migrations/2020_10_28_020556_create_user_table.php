@@ -19,6 +19,8 @@ class CreateUserTable extends Migration
             $table->string('gsbuser_password', 100);
             $table->string('gsbuser_name', 150);
             $table->timestamps();
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_spanish_ci';
         });
     }
 

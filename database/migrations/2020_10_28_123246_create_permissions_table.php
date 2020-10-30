@@ -18,6 +18,8 @@ class CreatePermissionsTable extends Migration
             $table->string('gtvpmss_desc', 150)->comment('descripción del permiso');
             $table->string('gtvpmss_slug', 50)->comment('partes de la dirección url');
             $table->timestamps();
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_spanish_ci';
         });
     }
 

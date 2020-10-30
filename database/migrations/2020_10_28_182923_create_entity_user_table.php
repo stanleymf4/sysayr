@@ -20,6 +20,8 @@ class CreateEntityUserTable extends Migration
             $table->unsignedInteger('gsbenur_user_id')->comment('identificador de de usuario');
             $table->foreign('gsbenur_user_id', 'fk_gsbenur_gsbuser')->references('gsbuser_id')->on('gsbuser')->onDelete('restrict')->onUpdate('restrict');
             $table->timestamps();
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_spanish_ci';
         });
     }
 

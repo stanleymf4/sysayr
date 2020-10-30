@@ -21,6 +21,8 @@ class CreateUserRoleTable extends Migration
             $table->foreign('gsbusrl_user_id', 'fk_gsbusrl_gsbuser')->references('gsbuser_id')->on('gsbuser')->onDelete('restrict')->onUpdate('restrict');
             $table->boolean('gsbusrl_ssts')->comment('estado de la relacion usuario role');
             $table->timestamps();
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_spanish_ci';
         });
     }
 
