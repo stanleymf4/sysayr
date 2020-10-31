@@ -2,9 +2,9 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="../../index3.html" class="brand-link elevation-4">
-    <img src="{{ asset("assets/$theme/dist/img/AdminLTELogo.png") }}" alt="AdminLTE Logo"
+    <img src="{{ asset("assets/$theme/dist/img/logo_empresa.png") }}" alt="AdminLTE Logo"
       class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <span class="brand-text font-weight-light">UNIANDES</span>
   </a>
 
   <!-- Sidebar -->

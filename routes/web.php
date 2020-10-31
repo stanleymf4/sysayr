@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\GsbmenuController;
 use App\Http\Controllers\Admin\GtvpmssController;
 use App\Http\Controllers\StartController;
 use Illuminate\Support\Facades\Route;
@@ -16,5 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [StartController::class, 'index']);
-Route::get('admin/permission', [GtvpmssController::class, 'index'])->name('permission');
-Route::get('admin/permission/create', [GtvpmssController::class, 'create'])->name('create');
+Route::get('admin/permission', [GtvpmssController::class, 'index'])->name('listaPermiso');
+Route::get('admin/permission/create', [GtvpmssController::class, 'create'])->name('crearpermiso');
+Route::get('admin/menu/create', [GsbmenuController::class, 'create'])->name('createMenu');
+Route::get('admin/menu/', [GsbmenuController::class, 'index'])->name('listaMenu');
+Route::post('admin/menu/store', [GsbmenuController::class, 'store'])->name('storeMenu');
