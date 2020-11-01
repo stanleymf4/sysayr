@@ -4,6 +4,10 @@
 Sistema Menús
 @endsection
 
+@section('scripts')
+<script src="{{ asset("assets/pages/scripts/admin/create.js") }}" type="text/javascript"></script>
+@endsection
+
 @section('content')
 <br />
 <div class="container-fluid">

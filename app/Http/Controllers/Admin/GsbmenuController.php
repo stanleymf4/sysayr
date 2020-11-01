@@ -38,7 +38,7 @@ class GsbmenuController extends Controller
     public function store(ValidationMenu $request)
     {
         Gsbmenu::create($request->all());
-        return redirect('admin/menu/create')->with('message', 'Menú creado con éxito');
+        /* return redirect('admin/menu/create')->with('message', 'Menú creado con éxito'); */
     }
 
     /**
