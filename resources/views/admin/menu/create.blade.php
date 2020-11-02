@@ -5,7 +5,7 @@ Sistema Menús
 @endsection
 
 @section('scripts')
-<script src="{{ asset("assets/pages/scripts/admin/create.js") }}" type="text/javascript"></script>
+<script src="{{ asset("assets/pages/scripts/admin/menu/create.js") }}" type="text/javascript"></script>
 @endsection
 
 @section('content')
@@ -19,7 +19,8 @@ Sistema Menús
         <div class="card-header">
           <h3 class="card-title">Crear Menus</h3>
         </div>
-        <form action="{{ route('storeMenu') }}" id="form-general" class="form-horizontal" method="POST">
+        <form action="{{ route('storeMenu') }}" id="form-general" class="form-horizontal" method="POST"
+          autocomplete="off">
           @csrf
           <div class="card-body">
             @include('admin.menu.form')

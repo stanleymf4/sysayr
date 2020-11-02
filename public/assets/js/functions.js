@@ -33,7 +33,7 @@ var validationsys = function () {
 
         },
         submitHandler: function(formu) {
-
+          return true;
         }
       });
     },

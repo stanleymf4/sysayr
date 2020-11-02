@@ -16,8 +16,10 @@
   <!-- Google Font: Source Sans Pro -->
   <link href=" https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-  <link href="{{asset("assets/css/custom.css")}}" rel="stylesheet">
   @yield("styles")
+
+  <link href="{{asset("assets/css/custom.css")}}" rel="stylesheet">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-navbar-fixed">
@@ -49,6 +51,7 @@
   <!-- AdminLTE for demo purposes -->
   <script src="{{ asset("assets/$theme/dist/js/demo.js") }}"></script>
   <!-- Framework de validación JQuery -->
+  @yield('scriptsPlugins')
   <script src="{{asset("assets/js/jquery-validation/jquery.validate.min.js")}}"></script>
   <script src="{{asset("assets/js/jquery-validation/localization/messages_es.min.js")}}"></script>
   <script src="{{asset("assets/js/functions.js")}}"></script>

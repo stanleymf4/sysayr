@@ -16,7 +16,8 @@ class GsbmenuController extends Controller
      */
     public function index()
     {
-        //
+        $menus = Gsbmenu::getMenu();
+        return view('admin.menu.index', compact('menus'));
     }
 
     /**
@@ -38,7 +39,7 @@ class GsbmenuController extends Controller
     public function store(ValidationMenu $request)
     {
         Gsbmenu::create($request->all());
-        /* return redirect('admin/menu/create')->with('message', 'Menú creado con éxito'); */
+        return redirect('admin/menu/create')->with('message', 'Menú creado con éxito');
     }
 
     /**
@@ -84,5 +85,16 @@ class GsbmenuController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function storeOrder(Request $request)
+    {
+        if ($request->ajax()) {
+            $menu = new Gsbmenu();
+            $menu->storeOrder($request->menu);
+            return response()->json(['answer' => 'ok']);
+        } else {
+            abort(404);
+        }
     }
 }
