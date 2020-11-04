@@ -1,5 +1,5 @@
 @if (session("message"))
-<div class="alert alert-success alert-dismissible">
+<div class="alert alert-success alert-dismissible" data-auto-dismiss="3000">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
   <h5><i class="icon fas fa-check"></i> Mensaje Sistema AYR</h5>
   <ul>

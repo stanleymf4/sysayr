@@ -34,3 +34,4 @@ Route::get('admin/role/create', [GtvroleController::class, 'create'])->name('cre
 Route::get('admin/role/{id}/edit', [GtvroleController::class, 'edit'])->name('editRole');
 Route::post('admin/role/store', [GtvroleController::class, 'store'])->name('storeRole');
 Route::put('admin/role/{id}', [GtvroleController::class, 'update'])->name('updateRole');
+Route::delete('admin/role/{id}', [GtvroleController::class, 'destroy'])->name('deleteRole');

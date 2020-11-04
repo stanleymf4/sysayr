@@ -13,6 +13,10 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset("assets/$theme/dist/css/adminlte.min.css") }}">
+  <!--Modal style -->
+  <link href="{{asset("assets/js/sweetalert2/sweetalert.css")}}" rel="stylesheet">
+  <!--Notificaciones style-->
+  <link href="{{asset("assets/js/toastr/toastr.min.css")}}" rel="stylesheet">
   <!-- Google Font: Source Sans Pro -->
   <link href=" https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
@@ -54,6 +58,8 @@
   @yield('scriptsPlugins')
   <script src="{{asset("assets/js/jquery-validation/jquery.validate.min.js")}}"></script>
   <script src="{{asset("assets/js/jquery-validation/localization/messages_es.min.js")}}"></script>
+  <script src="{{asset("assets/js/sweetalert2/sweetalert.min.js")}}"></script>
+  <script src="{{asset("assets/js/toastr/toastr.min.js")}}"></script>
   <script src="{{asset("assets/js/scripts.js")}}"></script>
   <script src="{{asset("assets/js/functions.js")}}"></script>
   <!--La función functions.js procesa las validaciones y hace uso de jQuery Validation -->
