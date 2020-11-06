@@ -25,6 +25,11 @@ Menú
       <div class="card card-secondary">
         <div class="card-header">
           <h3 class="card-title">Menús - Cuatro Niveles</h3>
+          <div class="card-tools pull-right">
+            <a href="{{route('createMenu')}}" class="btn btn-block btn-success btn-dm">
+              <i class="fa fa-fw fa-plus-circle"></i> Nuevo registro
+            </a>
+          </div>
         </div>
         <div class="card-body">
           @csrf

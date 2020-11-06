@@ -16,7 +16,7 @@ class CreateUserTable extends Migration
         Schema::create('gsbuser', function (Blueprint $table) {
             $table->bigIncrements('gsbuser_id');
             $table->string('gsbuser_login', 50);
-            $table->string('gsbuser_password', 100);
+            $table->string('password', 100);
             $table->string('gsbuser_name', 150);
             $table->timestamps();
             $table->charset = 'utf8mb4';

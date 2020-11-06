@@ -1,0 +1,2 @@
+Documento explicativo para definir relaciones: https://styde.net/convenciones-de-nombres-de-eloquent-en-laravel/
+Iconos de menu: https://www.tutorialspoint.com/ionic/ionic_icons.htm

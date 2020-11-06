@@ -12,7 +12,6 @@
 </div>
 <div class="form-group row">
   <label for="icon" class="col-lg-3 col-form-label">Icono</label>
-  {{-- https://www.tutorialspoint.com/ionic/ionic_icons.htm fuente para iconos --}}
   <div class="col-lg-8">
     <input type="text" name="gsbmenu_icon" class="form-control" id="icon" value="{{old('gsbmenu_icon')}}" />
   </div>

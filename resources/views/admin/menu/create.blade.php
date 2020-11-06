@@ -18,6 +18,11 @@ Sistema Menús
       <div class="card card-secondary">
         <div class="card-header">
           <h3 class="card-title">Crear Menus</h3>
+          <div class="card-tools pull-right">
+            <a href="{{route('menu')}}" class="btn btn-block btn-info btn-dm">
+              <i class="fa fa-fw fa-reply-all"></i> Volver al listado
+            </a>
+          </div>
         </div>
         <form action="{{ route('storeMenu') }}" id="form-general" class="form-horizontal" method="POST"
           autocomplete="off">

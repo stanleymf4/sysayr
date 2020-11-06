@@ -11,6 +11,11 @@ class Gsbmenu extends Model
     protected $fillable = ['gsbmenu_name', 'gsbmenu_url', 'gsbmenu_icon'];
     protected $guarded = 'gsbmenu_id';
 
+    public function roles()
+    {
+        return $this->belongsToMany(Gtvrole::class, 'gsbmerl', 'gsbmerl_menu_id', 'gsbmerl_role_id');
+    }
+
     public function getSons($parents, $line)
     {
         $sons = [];

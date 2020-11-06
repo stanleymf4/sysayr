@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Security\Gsbuser;
+
 return [
 
     /*
@@ -68,7 +70,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => Gsbuser::class,
         ],
 
         // 'users' => [
