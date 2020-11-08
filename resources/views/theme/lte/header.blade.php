@@ -115,7 +115,33 @@
         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
       </div>
     </li>
-    <li class="nav-item">
+
+    <li class="nav-item dropdown user-menu">
+      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+        <img src="{{ asset("assets/$theme/dist/img/user2-160x160.jpg") }}" class="user-image img-circle elevation-2"
+          alt="User Image">
+        <span class="d-none d-md-inline">Hola, {{session()->get('userName') ?? 'Invitado'}}</span>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        <!-- User image -->
+        <li class="user-header bg-primary">
+          <img src="{{ asset("assets/$theme/dist/img/user2-160x160.jpg") }}" class="img-circle elevation-2"
+            alt="User Image">
+
+          <p>
+            {{session()->get('userName') ?? 'Invitado'}} - Web Developer
+            <small>Member since Nov. 2012</small>
+          </p>
+        </li>
+        <!-- Menu Footer-->
+        <li class="user-footer">
+          <a href="{{route('login')}}" class="btn btn-default btn-flat">Login</a>
+          <a href="{{route('logout')}}" class="btn btn-default btn-flat float-right">Cerrar session</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="dropdown user user-menu">
       <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
         <i class="fas fa-th-large"></i>
       </a>

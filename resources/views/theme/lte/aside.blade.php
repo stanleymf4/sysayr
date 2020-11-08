@@ -16,7 +16,7 @@
           alt="User Image">
       </div>
       <div class="info">
-        <a href="#" class="d-block">Alexander Pierce</a>
+        <a href="#" class="d-block">Hola, {{session()->get('userName') ?? 'Invitado'}}</a>
       </div>
     </div>
 

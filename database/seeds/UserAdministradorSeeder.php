@@ -15,9 +15,28 @@ class UserAdministradorSeeder extends Seeder
     {
         DB::table('gsbuser')->insert([
             'gsbuser_login' => 'sysayr',
-            'gsbuser_name' => 'super_admin',
+            'gsbuser_name' => 'superadmin',
             'password' => bcrypt('pas123'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
+        DB::table('gsbuser')->insert([
+            'gsbuser_login' => 'ss.melo',
+            'gsbuser_name' => 'Stanley',
+            'password' => bcrypt('pas123'),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
+        DB::table('gsbusrl')->insert([
+            'gsbusrl_role_id' => 1,
+            'gsbusrl_user_id' => 1,
+            'gsbusrl_status' => 1
+        ]);
+
+        DB::table('gsbusrl')->insert([
+            'gsbusrl_role_id' => 2,
+            'gsbusrl_user_id' => 2,
+            'gsbusrl_status' => 1
         ]);
     }
 }

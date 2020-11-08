@@ -14,9 +14,11 @@ class GtvroleSeeder extends Seeder
     public function run()
     {
         $role = [
+            'superadmin',
             'Administrador',
             'Editor',
-            'Supervisor'
+            'Supervisor',
+            'Consulta'
         ];
 
         foreach ($role as $key => $value) {

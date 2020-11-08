@@ -1,4 +1,5 @@
 @extends("theme.$theme.layout")
+
 @section('content')
-Bienvenidos
+@include('includes.message')
 @endsection

@@ -25,8 +25,8 @@ Route::get('/', [StartController::class, 'index'])->name('start');
 Route::get('security/login', [LoginController::class, 'index'])->name('login');
 Route::post('security/login', [LoginController::class, 'login'])->name('login-post');
 Route::get('security/logout', [LoginController::class, 'logout'])->name('logout');
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function () {
-  Route::get('/', [AdminController::class, 'index']);
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'superadmin']], function () {
+  Route::get('', [AdminController::class, 'index']);
   Route::get('permission', [GtvpmssController::class, 'index'])->name('listaPermiso');
   Route::get('permission/create', [GtvpmssController::class, 'create'])->name('crearpermiso');
 

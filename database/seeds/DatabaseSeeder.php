@@ -17,13 +17,15 @@ class DatabaseSeeder extends Seeder
             'gtvrole',
             'gtvpmss',
             'gtvdven',
-            'gsbuser'
+            'gsbuser',
+            'gsbusrl'
         ]);
 
         $this->call(GtvroleSeeder::class);
         $this->call(GtvpmssSeeder::class);
         $this->call(GtvdvenSeeder::class);
         $this->call(GsbuserSeeder::class);
+        $this->call(UserAdministradorSeeder::class);
     }
 
     protected function truncateTables(array $tables)

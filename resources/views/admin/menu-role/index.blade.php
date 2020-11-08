@@ -14,7 +14,7 @@ Menu - Rol
   <div class="row">
     <div class="col-lg-12">
       @include("includes.message")
-      <div class="card card-success">
+      <div class="card card-primary card-outline">
         <div class="card-header with-border">
           <h3 class="card-title">Menús - Rol</h3>
         </div>

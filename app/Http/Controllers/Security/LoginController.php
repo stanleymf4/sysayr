@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
-    protected $redirectTo = "/admin";
+    protected $redirectTo = "/";
 
     public function __construct()
     {
@@ -33,5 +33,17 @@ class LoginController extends Controller
             $this->username() => 'required|string',
             'password' => 'required|string',
         ]);
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        $roles = $user->roles()->where('gsbusrl_status', 1)->get();
+        if ($roles->isNotEmpty()) {
+            $user->setSession($roles->toArray());
+        } else {
+            $this->guard()->logout();
+            $request->session()->invalidate();
+            return redirect('security/login')->withErrors(['error' => 'Este usuario no tiene un rol activo']);
+        }
     }
 }
