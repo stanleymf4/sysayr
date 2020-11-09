@@ -24,11 +24,11 @@
 <body class="hold-transition login-page">
 
 
-  <nav id="header_login" class="navbar navbar-expand-lg " style="background-color:#fff200;">
+  <nav id="header_login" class="navbar navbar-yellow navbar-light navbar-expand-lg ">
     <a class="navbar-brand" href="#">
       <img src="{{asset("assets/image/uniandes.svg")}}" alt="">
     </a>
-    <p class="text-left" id="tex_oficce"> Dirección de Admisiones y Registro </p>
+    <p class="text-left" id="tex_oficce"> | Dirección de Admisiones y Registro </p>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

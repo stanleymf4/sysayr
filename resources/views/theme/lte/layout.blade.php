@@ -22,6 +22,9 @@
 
   @yield("styles")
 
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset("assets/$theme/dist/css/adminlte.min.css") }}">
+
   <link href="{{asset("assets/css/custom.css")}}" rel="stylesheet">
 
 </head>

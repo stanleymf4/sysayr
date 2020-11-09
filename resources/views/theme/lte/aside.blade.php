@@ -25,7 +25,6 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-        <li class="header">Menu Principal</li>
         @foreach ($menusComposer as $key => $item)
         @if ($item["gsbmenu_parent_id"] != 0)
         @break

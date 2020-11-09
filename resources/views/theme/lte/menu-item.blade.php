@@ -1,6 +1,6 @@
 @if ($item["submenu"] == [])
-<li class="nav-item">
-  <a href="{{url($item['gsbmenu_url'])}}" class="nav-link">
+<li class="nav-item ">
+  <a href="{{url($item['gsbmenu_url'])}}" class="nav-link {{getMenuActivo($item["gsbmenu_url"])}}">
     <i class="nav-icon fas {{$item["gsbmenu_icon"]}}"></i>
     <p>
       {{$item["gsbmenu_name"]}}
@@ -8,7 +8,7 @@
   </a>
 </li>
 @else
-<li class="nav-item has-treeview menu-open">
+<li class="nav-item has-treeview">
   <a href="javascript:;" class="nav-link">
     <i class="nav-icon fas {{$item["gsbmenu_icon"]}}"></i>
     <p>

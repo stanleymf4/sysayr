@@ -15,4 +15,5 @@ $(document).ready(function() {
     html: true,
     container: 'body'
   });
+  $('ul.nav-sidebar').find('a.active').parents('li').addClass(' menu-open ');
 });
