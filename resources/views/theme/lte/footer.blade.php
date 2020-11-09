@@ -2,7 +2,8 @@
   <div class="float-right d-none d-sm-block">
     <b>Version</b> 1.0
   </div>
-  <strong><a href="http://uniandes.edu.co">Universidad de los Andes &copy; 2020 </a> | Vigilada Mineducación.</strong>
+  <strong><a href="http://uniandes.edu.co" target="_blank">Universidad de los Andes &copy; 2020 </a> | Vigilada
+    Mineducación.</strong>
   Todos los derechos
   reservados.
 </footer>
