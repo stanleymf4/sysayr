@@ -9,8 +9,8 @@ Permisos
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-12">
-      <div class="card">
-        <div class="card-header">
+      <div class="card card-secondary card-outline">
+        <div class="card-header with-border">
           <h3 class="card-title">Permisos</h3>
         </div>
         <div class="card-body table-responsive p-0">

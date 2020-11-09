@@ -15,8 +15,8 @@ Sistema Menús
     <div class="col-lg-12">
       @include('includes.form-error')
       @include('includes.message')
-      <div class="card card-secondary">
-        <div class="card-header">
+      <div class="card card-primary card-outline">
+        <div class="card-header with-border">
           <h3 class="card-title">Crear Menus</h3>
           <div class="card-tools pull-right">
             <a href="{{route('menu')}}" class="btn btn-block btn-info btn-dm">

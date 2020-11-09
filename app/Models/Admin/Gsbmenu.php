@@ -30,10 +30,9 @@ class Gsbmenu extends Model
     public function getParents($front)
     {
         if ($front) {
-            return $this->whereHas('gtvrole', function ($query) {
-                $query->where('gtvrole_id', session()->get('gtvrole_id'))->orderby('gsbmenu_parent_id');
-            })->where('estado', 1)
-                ->orderby('gsbmenu_parent_id')
+            return $this->whereHas('roles', function ($query) {
+                $query->where('gsbmerl_role_id', session()->get('rol_id'))->orderby('gsbmerl_menu_id');
+            })->orderby('gsbmenu_parent_id')
                 ->orderby('gsbmenu_order')
                 ->get()
                 ->toArray();
