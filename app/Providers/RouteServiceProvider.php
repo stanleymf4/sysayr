@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
+use App\Http\Requests\ValidationMenu;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Validator;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -34,6 +37,7 @@ class RouteServiceProvider extends ServiceProvider
 
         parent::boot();
     }
+
 
     /**
      * Define the routes for the application.

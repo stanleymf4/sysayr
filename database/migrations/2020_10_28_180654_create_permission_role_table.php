@@ -17,8 +17,7 @@ class CreatePermissionRoleTable extends Migration
             $table->unsignedInteger('gsbpmrl_role_id')->comment('identificador de role');
             $table->foreign('gsbpmrl_role_id', 'fk_gsbpmrl_gtvrole')->references('gtvrole_id')->on('gtvrole')->onDelete('restrict')->onUpdate('restrict');
             $table->unsignedInteger('gsbpmrl_pmss_id')->comment('identificador de permiso');
-            $table->foreign('gsbpmrl_pmss_id', 'fk_gsbpmrl_gtvpmss')->references('gtvpmss_id')->on('gtvpmss')->onDelete('restrict')->onUpdate('restrict');
-            $table->timestamps();
+            $table->foreign('gsbpmrl_pmss_id', 'fk_gsbpmrl_gtvpmss')->references('gtvpmss_id')->on('gtvpmss')->onDelete('cascade')->onUpdate('restrict');
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_spanish_ci';
         });

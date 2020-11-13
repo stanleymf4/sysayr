@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Rules\ValidateUrlField;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ValidationMenu extends FormRequest
 {
@@ -25,7 +26,11 @@ class ValidationMenu extends FormRequest
     public function rules()
     {
         return [
-            'gsbmenu_name' => 'required|max:50|unique:gsbmenu,gsbmenu_name' . $this->route('id'),
+            'gsbmenu_name' => [
+                'required',
+                'max:50',
+                Rule::unique('gsbmenu', 'gsbmenu_name')->ignore($this->route('id'), 'gsbmenu_id')
+            ],
             'gsbmenu_url' => ['required', 'max:100', new ValidateUrlField()],
             'gsbmenu_icon' => 'nullable|max:50'
         ];

@@ -14,9 +14,7 @@ $(document).ready(function () {
     function (isConfirm) {
       if (isConfirm) {
         ajaxRequest(form);
-      } else {
-        alert ('No Ok');
-      }
+      } 
     })
   });
 

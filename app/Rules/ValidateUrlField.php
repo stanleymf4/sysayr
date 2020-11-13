@@ -27,7 +27,7 @@ class ValidateUrlField implements Rule
     public function passes($attribute, $value)
     {
         if ($value != '#') {
-            $menu = Gsbmenu::where($attribute, $value)->get(); //devuelve una colección en caso que encuentre el dato en la tabla 
+            $menu = Gsbmenu::where($attribute, $value)->where('gsbmenu_id', '!=', request()->route('id'))->get(); //devuelve una colección en caso que encuentre el dato en la tabla 
             return $menu->isEmpty(); //si no esta vacio devuelve false
         }
         return true;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValidationPermission;
 use App\Models\Admin\Gtvpmss;
 use Illuminate\Http\Request;
 
@@ -35,9 +36,10 @@ class GtvpmssController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidationPermission $request)
     {
-        //
+        Gtvpmss::create($request->all());
+        return redirect('admin/permission/create')->with('message', 'Permiso creado con éxito');
     }
 
     /**
@@ -59,7 +61,8 @@ class GtvpmssController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Gtvpmss::findOrFail($id);
+        return view('admin.permission.edit', compact('data'));
     }
 
     /**
@@ -69,9 +72,10 @@ class GtvpmssController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ValidationPermission $request, $id)
     {
-        //
+        Gtvpmss::findOrFail($id)->update($request->all());
+        return redirect('admin/permission')->with('message', 'Permiso actualizado con éxito');
     }
 
     /**
@@ -80,8 +84,16 @@ class GtvpmssController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        if ($request->ajax()) {
+            if (Gtvpmss::destroy($id)) {
+                return response()->json(['message' => 'ok']);
+            } else {
+                return response()->json(['message' => 'ng']);
+            }
+        } else {
+            abort(404);
+        }
     }
 }

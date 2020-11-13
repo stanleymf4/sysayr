@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\GsbmenuController;
 use App\Http\Controllers\Admin\GsbmerlController;
 use App\Http\Controllers\Admin\GtvpmssController;
 use App\Http\Controllers\Admin\GtvroleController;
+use App\Http\Controllers\Admin\PermissionRole;
 use App\Http\Controllers\Security\LoginController;
 use App\Http\Controllers\StartController;
 use App\Models\Admin\Gsbmenu;
@@ -27,13 +28,22 @@ Route::post('security/login', [LoginController::class, 'login'])->name('login-po
 Route::get('security/logout', [LoginController::class, 'logout'])->name('logout');
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'superadmin']], function () {
   Route::get('', [AdminController::class, 'index']);
-  Route::get('permission', [GtvpmssController::class, 'index'])->name('listaPermiso');
-  Route::get('permission/create', [GtvpmssController::class, 'create'])->name('crearpermiso');
+  /* RUTAS DE PERMISO */
+  Route::get('permission', [GtvpmssController::class, 'index'])->name('permission');
+  /* Route::get('permission', [GtvpmssController::class, 'index'])->name('listPermiso'); */
+  Route::get('permission/create', [GtvpmssController::class, 'create'])->name('createPermission');
+  Route::post('permission', [GtvpmssController::class, 'store'])->name('storePermission');
+  Route::get('permission/{id}/edit', [GtvpmssController::class, 'edit'])->name('editPermission');
+  Route::put('permission/{id}', [GtvpmssController::class, 'update'])->name('updatePermission');
+  Route::delete('permission/{id}', [GtvpmssController::class, 'destroy'])->name('deletePermission');
 
   /* RUTAS DEL MENU */
   Route::get('menu', [GsbmenuController::class, 'index'])->name('menu');
   Route::get('menu/create', [GsbmenuController::class, 'create'])->name('createMenu');
   Route::post('menu/store', [GsbmenuController::class, 'store'])->name('storeMenu');
+  Route::get('menu/{id}/editar', [GsbmenuController::class, 'edit'])->name('editMenu');
+  Route::put('menu/{id}', [GsbmenuController::class, 'update'])->name('updateMenu');
+  Route::get('menu/{id}/delete', [GsbmenuController::class, 'destroy'])->name('deleteMenu');
   Route::post('menu/storeOrder', [GsbmenuController::class, 'storeOrder'])->name('storeOrder');
 
   /* RUTAS ROLES */
@@ -47,4 +57,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
   /*RUTAS MENU ROL*/
   Route::get('menu-role', [GsbmerlController::class, 'index'])->name('menuRole');
   Route::post('menu-role', [GsbmerlController::class, 'store'])->name('storeMenuRole');
+
+  /*RUTAS PERMISO ROL*/
+  Route::get('permission-role', [PermissionRole::class, 'index'])->name('permissionRole');
+  Route::post('permission-role', [PermissionRole::class, 'store'])->name('storePermissionRole');
 });

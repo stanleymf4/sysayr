@@ -16,6 +16,7 @@ class GsbmenuController extends Controller
      */
     public function index()
     {
+        can('listar');
         $menus = Gsbmenu::getMenu();
         return view('admin.menu.index', compact('menus'));
     }
@@ -61,7 +62,8 @@ class GsbmenuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Gsbmenu::findOrFail($id);
+        return view('admin.menu.edit', compact('data'));
     }
 
     /**
@@ -71,9 +73,11 @@ class GsbmenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ValidationMenu $request, $id)
     {
-        //
+
+        Gsbmenu::findOrFail($id)->update($request->all());
+        return redirect('admin/menu')->with('message', 'Menú actualizado con éxito');
     }
 
     /**
@@ -84,7 +88,8 @@ class GsbmenuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Gsbmenu::destroy($id);
+        return redirect('admin/menu')->with('message', 'Menú eliminado con exito');
     }
 
     public function storeOrder(Request $request)

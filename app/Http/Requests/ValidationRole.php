@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ValidationRole extends FormRequest
 {
@@ -24,7 +25,11 @@ class ValidationRole extends FormRequest
     public function rules()
     {
         return [
-            'gtvrole_desc' => 'required|max:50|unique:gtvrole,gtvrole_desc' . $this->route('gtvrole_id'),
+            'gtvrole_desc' => [
+                'required',
+                'max:50',
+                Rule::unique('gtvrole', 'gtvrole_desc')->ignore($this->route('id'), 'gtvrole_id')
+            ],
         ];
     }
 }

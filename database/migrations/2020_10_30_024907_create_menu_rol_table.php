@@ -17,7 +17,7 @@ class CreateMenuRolTable extends Migration
             $table->unsignedInteger('gsbmerl_role_id')->comment('identificador de role');
             $table->foreign('gsbmerl_role_id', 'fk_gsbmerl_gtvrole')->references('gtvrole_id')->on('gtvrole')->onDelete('restrict')->onUpdate('restrict');
             $table->unsignedInteger('gsbmerl_menu_id')->comment('identificador de menu');
-            $table->foreign('gsbmerl_menu_id', 'fk_gsbmerl_gsbmenu')->references('gsbmenu_id')->on('gsbmenu')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('gsbmerl_menu_id', 'fk_gsbmerl_gsbmenu')->references('gsbmenu_id')->on('gsbmenu')->onDelete('cascade')->onUpdate('restrict');
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_spanish_ci';
         });
