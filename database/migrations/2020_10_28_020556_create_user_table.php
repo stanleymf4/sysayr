@@ -15,9 +15,10 @@ class CreateUserTable extends Migration
     {
         Schema::create('gsbuser', function (Blueprint $table) {
             $table->bigIncrements('gsbuser_id');
-            $table->string('gsbuser_login', 50);
+            $table->string('gsbuser_login', 50)->unique();
             $table->string('password', 100);
             $table->string('gsbuser_name', 150);
+            $table->string('gsbuser_email', 100)->unique();
             $table->timestamps();
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_spanish_ci';

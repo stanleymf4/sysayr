@@ -37,7 +37,7 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        $roles = $user->roles()->where('gsbusrl_status', 1)->get();
+        $roles = $user->roles()->get();
         if ($roles->isNotEmpty()) {
             $user->setSession($roles->toArray());
         } else {

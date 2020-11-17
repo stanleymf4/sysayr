@@ -3,3 +3,4 @@ Iconos de menu: https://www.tutorialspoint.com/ionic/ionic_icons.htm
 Para crear un middleware se usa el comando: php artisan make:middleware
 Documentacion en español de Laravel: https://styde.net/documentacion-de-laravel-6/
 Shinobi: libreria de permisos para laravel
+Spatie: esta es una libreria para permisos que esta en githug, es mejor que shinobi https://github.com/spatie/laravel-permission

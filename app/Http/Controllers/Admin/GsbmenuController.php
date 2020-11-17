@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ValidationMenu;
 use App\Models\Admin\Gsbmenu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class GsbmenuController extends Controller
 {
@@ -16,7 +17,10 @@ class GsbmenuController extends Controller
      */
     public function index()
     {
-        can('listar');
+        //can('listar');
+        //dd(Cache::store('file')->get('permission.rolid.1'));
+        //dd(Cache::get('prueba'));
+        //Cache::put('prueba', 'Esto es un dato');
         $menus = Gsbmenu::getMenu();
         return view('admin.menu.index', compact('menus'));
     }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\GsbmenuController;
 use App\Http\Controllers\Admin\GsbmerlController;
+use App\Http\Controllers\Admin\GsbuserController;
 use App\Http\Controllers\Admin\GtvpmssController;
 use App\Http\Controllers\Admin\GtvroleController;
 use App\Http\Controllers\Admin\PermissionRole;
@@ -28,6 +29,15 @@ Route::post('security/login', [LoginController::class, 'login'])->name('login-po
 Route::get('security/logout', [LoginController::class, 'logout'])->name('logout');
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'superadmin']], function () {
   Route::get('', [AdminController::class, 'index']);
+
+  /* RUTAS DE USUARIO */
+  Route::get('user', [GsbuserController::class, 'index'])->name('user');
+  Route::get('user/create', [GsbuserController::class, 'create'])->name('createUser');
+  Route::post('user', [GsbuserController::class, 'store'])->name('storeUser');
+  Route::get('user/{id}/edit', [GsbuserController::class, 'edit'])->name('editUser');
+  Route::put('user/{id}', [GsbuserController::class, 'update'])->name('updateUser');
+  Route::delete('user/{id}', [GsbuserController::class, 'destroy'])->name('deleteUser');
+
   /* RUTAS DE PERMISO */
   Route::get('permission', [GtvpmssController::class, 'index'])->name('permission');
   /* Route::get('permission', [GtvpmssController::class, 'index'])->name('listPermiso'); */

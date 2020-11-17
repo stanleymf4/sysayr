@@ -5,6 +5,7 @@ namespace App\Models\Security;
 use App\Models\Admin\Gtvrole;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class Gsbuser extends Authenticatable
@@ -12,10 +13,9 @@ class Gsbuser extends Authenticatable
     protected $remember_token = false;
     protected $table = 'gsbuser';
     protected $primaryKey = 'gsbuser_id';
-    protected $guarded = ['gsbuser_id'];
 
     protected $fillable = [
-        'gsbuser_login', 'gsbuser_name', 'password',
+        'gsbuser_login', 'gsbuser_name', 'password', 'gsbuser_email',
     ];
 
     public function roles()
@@ -36,5 +36,10 @@ class Gsbuser extends Authenticatable
                 ]
             );
         }
+    }
+
+    public function setPasswordAttibute($pass)
+    {
+        $this->attributes['password'] = Hash::make($pass);
     }
 }

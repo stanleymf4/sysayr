@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Gtvpmss;
 use App\Models\Admin\Gtvrole;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class PermissionRole extends Controller
 {
@@ -31,6 +32,7 @@ class PermissionRole extends Controller
     public function store(Request $request)
     {
         if ($request->ajax()) {
+            Cache::forget('permission.rolid.' . $request->input('rol_id'));
             $permission = new Gtvpmss();
             if ($request->input('estado') == 1) {
                 $permission->find($request->input('permiso_id'))->roles()->attach($request->input('rol_id'));

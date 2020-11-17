@@ -20,9 +20,9 @@ if (!function_exists('canUser')) {
     if (session()->get('rol_name') == 'xx') {
       return true;
     } else {
-      $rolId = session()->get('rold_id');
+      $rolId = session()->get('rol_id');
       /* //$permissions = cache()->tags('Permission')->rememberForever("Permission.rolid.$rolId", function () { */
-      $permissions = Cache::rememberForever("Permission.rolid.$rolId", function () {
+      $permissions = Cache::rememberForever("permission.rolid.$rolId", function () {
         return Gtvpmss::whereHas('roles', function ($query) {
           $query->where('gsbpmrl_role_id', session()->get('rol_id'));
         })->get()->pluck('gtvpmss_slug')->toArray();
