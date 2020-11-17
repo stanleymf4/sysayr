@@ -17,7 +17,7 @@ class UserAdministradorSeeder extends Seeder
             'gsbuser_login' => 'sysayr',
             'gsbuser_name' => 'superadmin',
             'gsbuser_email' => 'ss.melo@uniandes.edu.co',
-            'password' => bcrypt('pas123'),
+            'password' => 'pas123',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 

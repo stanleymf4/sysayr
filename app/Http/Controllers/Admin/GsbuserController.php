@@ -17,7 +17,7 @@ class GsbuserController extends Controller
      */
     public function index()
     {
-        $datas = Gsbuser::orderBy('gsbuser_id')->get();
+        $datas = Gsbuser::with('roles:gtvrole_id,gtvrole_desc')->orderBy('gsbuser_id')->get();
         return view('admin.user.index', compact('datas'));
     }
 
@@ -78,7 +78,9 @@ class GsbuserController extends Controller
      */
     public function update(ValidationUser $request, $id)
     {
-        Gsbuser::findOrFail($id)->update($request->all());
+        $user = Gsbuser::findOrFail($id);
+        $user->update(array_filter($request->all())); //el array_filter sirve para qu todos los campos que lleguen vacio los elimina del array;
+        $user->roles()->sync($request->rol_id);
         return redirect('admin/user')->with('messages', 'Usuario actualizado con éxito');
     }
 
@@ -88,8 +90,15 @@ class GsbuserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        if ($request->ajax()) {
+            $user = Gsbuser::findOrFail($id);
+            $user->roles()->detach();
+            $user->delete();
+            return response()->json(['message' => 'ok']);
+        } else {
+            abort(404);
+        }
     }
 }

@@ -20,27 +20,30 @@
   </div>
 </div>
 <div class="form-group row">
-  <label for="password" class="col-lg-3 col-form-label requerido">Contraseña</label>
+  <label for="password" class="col-lg-3 col-form-label {{!isset($data) ? 'requerido' : ''}}">Contraseña</label>
   <div class="col-lg-8">
     <input type="password" name="password" class="form-control" id="password"
-      value="{{old('password', $data->password ?? '')}}" required />
+      {{-- value="{{old('password', $data->password ?? '')}}" --}} {{!isset($data) ? 'required' : ''}} minlength="5" />
   </div>
 </div>
 <div class="form-group row">
-  <label for="re_password" class="col-lg-3 col-form-label requerido">Repita Contraseña</label>
+  <label for="re_password" class="col-lg-3 col-form-label {{!isset($data) ? 'requerido' : ''}}">Repita
+    Contraseña</label>
   <div class="col-lg-8">
     <input type="password" name="re_password" class="form-control" id="re_password"
-      value="{{old('re_password', $data->re_password ?? '')}}" required />
+      {{-- value="{{old('re_password', $data->re_password ?? '')}}" --}} {{!isset($data) ? 'required' : ''}}
+      minlength="5" />
   </div>
 </div>
 <div class="form-group row">
   <label for="rol_id" class="col-lg-3 col-form-label requerido">Rol</label>
   <div class="col-lg-8">
-    {{-- {{dd($roles[0])}} --}}
-    <select name="rol_id" id="rol_id" class="form-control" required>
+    <select name="rol_id[]" id="rol_id" class="form-control" multiple required>
       <option value="">Seleccione el rol</option>
       @foreach ($roles as $id => $item)
-      <option value="{{$id}}" {{old("rol_id", $data->roles[0]->gtvrole_id ?? "") == $id ? "selected" : ""}}>{{$item}}
+      <option value="{{$id}}"
+        {{is_array(old('rol_id')) ? (in_array($id, old('rol_id')) ? 'selected' : '') : (isset($data) ? ($data->roles->firstWhere('gtvrole_id', $id) ? 'selected' : '') : '')}}>
+        {{$item}}
       </option>
       @endforeach
     </select>

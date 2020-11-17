@@ -24,35 +24,69 @@ class ValidationUser extends FormRequest
      */
     public function rules()
     {
-        return [
-            'gsbuser_login' => [
-                'required',
-                'max:50',
-                Rule::unique('gsbuser', 'gsbuser_login')->ignore($this->route('id'), 'gsbuser_id')
-            ],
-            'gsbuser_name' => [
-                'required',
-                'max:50',
-            ],
-            'gsbuser_email' => [
-                'required',
-                'email',
-                'max:100',
-                Rule::unique('gsbuser', 'gsbuser_email')->ignore($this->route('id'), 'gsbuser_id')
-            ],
-            'password' => [
-                'required',
-                'min:5',
-            ],
-            're_password' => [
-                'required',
-                'same:password',
-            ],
-            'rol_id' => [
-                'required',
-                'integer',
-            ]
-        ];
+        if (!$this->route('id')) {
+            return [
+                'gsbuser_login' => [
+                    'required',
+                    'max:50',
+                    Rule::unique('gsbuser', 'gsbuser_login')->ignore($this->route('id'), 'gsbuser_id')
+                ],
+                'gsbuser_name' => [
+                    'required',
+                    'max:50',
+                ],
+                'gsbuser_email' => [
+                    'required',
+                    'email',
+                    'max:100',
+                    Rule::unique('gsbuser', 'gsbuser_email')->ignore($this->route('id'), 'gsbuser_id')
+                ],
+                'password' => [
+                    'required',
+                    'min:5',
+                ],
+                're_password' => [
+                    'required',
+                    'same:password',
+                ],
+                'rol_id' => [
+                    'required',
+                    'array',
+                ]
+            ];
+        } else {
+            return [
+                'gsbuser_login' => [
+                    'required',
+                    'max:50',
+                    Rule::unique('gsbuser', 'gsbuser_login')->ignore($this->route('id'), 'gsbuser_id')
+                ],
+                'gsbuser_name' => [
+                    'required',
+                    'max:50',
+                ],
+                'gsbuser_email' => [
+                    'required',
+                    'email',
+                    'max:100',
+                    Rule::unique('gsbuser', 'gsbuser_email')->ignore($this->route('id'), 'gsbuser_id')
+                ],
+                'password' => [
+                    'nullable',
+                    'min:5',
+                ],
+                're_password' => [
+                    'nullable',
+                    'required_with:password',
+                    'min:5',
+                    'same:password',
+                ],
+                'rol_id' => [
+                    'required',
+                    'array',
+                ]
+            ];
+        }
     }
 
     public function messages()
@@ -71,7 +105,8 @@ class ValidationUser extends FormRequest
             'gsbuser_password.min' => 'El campo no puede ser menor de 5',
             're_password.required' => 'El campo re_password es requerido',
             're_password.same' => 'Las contraseñas no coinciden',
-            'rol_id.required' => 'El campo rol_id es requerido'
+            'rol_id.required' => 'El campo rol_id es requerido',
+            're_password.required_with:password' => 'El campo re_password es requerido cuando password está presente',
         ];
     }
 }

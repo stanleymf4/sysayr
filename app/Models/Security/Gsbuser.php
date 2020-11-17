@@ -38,7 +38,7 @@ class Gsbuser extends Authenticatable
         }
     }
 
-    public function setPasswordAttibute($pass)
+    public function setPasswordAttribute($pass)
     {
         $this->attributes['password'] = Hash::make($pass);
     }

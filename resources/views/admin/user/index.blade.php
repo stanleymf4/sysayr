@@ -29,6 +29,7 @@ Usuarios
                 <th>Usuarios</th>
                 <th>Nombre</th>
                 <th>Email</th>
+                <th>Roles</th>
                 <th class="width70"></th>
               </tr>
             </thead>
@@ -38,6 +39,11 @@ Usuarios
                 <td>{{$data->gsbuser_login}}</td>
                 <td>{{$data->gsbuser_name}}</td>
                 <td>{{$data->gsbuser_email}}</td>
+                <td>
+                  @foreach ($data->roles as $role)
+                  {{$loop->last ? $role->gtvrole_desc : $role->gtvrole_desc.','}}
+                  @endforeach
+                </td>
                 <td>
                   <a href="{{route('editUser', ['id' => $data->gsbuser_id])}}" class="btn-accion-tabla tooltipsC"
                     title="Editar este registro">

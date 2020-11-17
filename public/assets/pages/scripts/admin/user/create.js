@@ -10,4 +10,12 @@ $(document).ready(function() {
    }
  };
  SysAyr.validationGeneral('form-general', rules, messages);
+ $('#password').on('change', function() {
+   const valor = $(this).val();
+   if(valor != '') {
+      $('#re_password').prop('required', true);
+   } else {
+    $('#re_password').prop('required', false);
+   }
+ })
 });
