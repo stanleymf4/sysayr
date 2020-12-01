@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\GsbuserController;
 use App\Http\Controllers\Admin\GtvpmssController;
 use App\Http\Controllers\Admin\GtvroleController;
 use App\Http\Controllers\Admin\PermissionRole;
+use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Security\LoginController;
 use App\Http\Controllers\StartController;
 use App\Models\Admin\Gsbmenu;
@@ -27,6 +28,7 @@ Route::get('/', [StartController::class, 'index'])->name('start');
 Route::get('security/login', [LoginController::class, 'index'])->name('login');
 Route::post('security/login', [LoginController::class, 'login'])->name('login-post');
 Route::get('security/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('ajax-session', [AjaxController::class, 'setSession'])->name('ajax')->middleware('auth');
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'superadmin']], function () {
   Route::get('', [AdminController::class, 'index']);
 

@@ -1,2 +1,2 @@
-Hola {{ $nombre }}
-<?php echo {{ $nombre }} ?>
+{{-- Hola {{ $nombre }} --}}
+{{-- <?php echo {{ $nombre }} ?> --}}

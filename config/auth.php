@@ -1,6 +1,9 @@
 <?php
 
+use App\Ldap\Gsbuser as LdapGsbuser;
+use App\Ldap\User as LdapUser;
 use App\Models\Security\Gsbuser;
+use App\User;
 
 return [
 
@@ -38,9 +41,14 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        /* 'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ], */
+
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'ldap',
         ],
 
         'api' => [
@@ -68,15 +76,23 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        /* 'users' => [
             'driver' => 'eloquent',
             'model' => Gsbuser::class,
+        ], */
+        'ldap' => [
+            'driver' => 'ldap',
+            'model' => LdapRecord\Models\OpenLDAP\User::class,
+            'database' => [
+                'model' => Gsbuser::class,
+                'sync_passwords' => false,
+                'sync_attributes' => [
+                    'gsbuser_name' => 'cn',
+                    'gsbuser_email' => 'mail',
+                    'gsbuser_login' => 'uid'
+                ],
+            ],
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*

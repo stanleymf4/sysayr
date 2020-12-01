@@ -6,15 +6,15 @@
       <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="/" class="nav-link">Home</a>
+      <a href="#" class="nav-link">Dirección de Admisiones y Registro</a>
     </li>
-    <li class="nav-item d-none d-sm-inline-block">
+    {{--  <li class="nav-item d-none d-sm-inline-block">
       <a href="#" class="nav-link">Contact</a>
-    </li>
+    </li> --}}
   </ul>
 
   <!-- SEARCH FORM -->
-  <form class="form-inline ml-3">
+  {{-- <form class="form-inline ml-3">
     <div class="input-group input-group-sm">
       <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
       <div class="input-group-append">
@@ -23,12 +23,12 @@
         </button>
       </div>
     </div>
-  </form>
+  </form> --}}
 
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
     <!-- Messages Dropdown Menu -->
-    <li class="nav-item dropdown">
+    {{-- <li class="nav-item dropdown">
       <a class="nav-link" data-toggle="dropdown" href="#">
         <i class="far fa-comments"></i>
         <span class="badge badge-danger navbar-badge">3</span>
@@ -38,58 +38,58 @@
           <!-- Message Start -->
           <div class="media">
             <img src="{{ asset("assets/$theme/dist/img/user1-128x128.jpg") }}" alt="User Avatar"
-              class="img-size-50 mr-3 img-circle">
-            <div class="media-body">
-              <h3 class="dropdown-item-title">
-                Brad Diesel
-                <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-              </h3>
-              <p class="text-sm">Call me whenever you can...</p>
-              <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-            </div>
-          </div>
-          <!-- Message End -->
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
-          <!-- Message Start -->
-          <div class="media">
-            <img src="{{ asset("assets/$theme/dist/img/user8-128x128.jpg") }}" alt="User Avatar"
-              class="img-size-50 img-circle mr-3">
-            <div class="media-body">
-              <h3 class="dropdown-item-title">
-                John Pierce
-                <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-              </h3>
-              <p class="text-sm">I got your message bro</p>
-              <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-            </div>
-          </div>
-          <!-- Message End -->
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
-          <!-- Message Start -->
-          <div class="media">
-            <img src="{{ asset("assets/$theme/dist/img/user3-128x128.jpg") }}" alt="User Avatar"
-              class="img-size-50 img-circle mr-3">
-            <div class="media-body">
-              <h3 class="dropdown-item-title">
-                Nora Silvester
-                <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-              </h3>
-              <p class="text-sm">The subject goes here</p>
-              <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-            </div>
-          </div>
-          <!-- Message End -->
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+    class="img-size-50 mr-3 img-circle">
+    <div class="media-body">
+      <h3 class="dropdown-item-title">
+        Brad Diesel
+        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+      </h3>
+      <p class="text-sm">Call me whenever you can...</p>
+      <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+    </div>
+    </div>
+    <!-- Message End -->
+    </a>
+    <div class="dropdown-divider"></div>
+    <a href="#" class="dropdown-item">
+      <!-- Message Start -->
+      <div class="media">
+        <img src="{{ asset("assets/$theme/dist/img/user8-128x128.jpg") }}" alt="User Avatar"
+          class="img-size-50 img-circle mr-3">
+        <div class="media-body">
+          <h3 class="dropdown-item-title">
+            John Pierce
+            <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+          </h3>
+          <p class="text-sm">I got your message bro</p>
+          <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+        </div>
       </div>
-    </li>
+      <!-- Message End -->
+    </a>
+    <div class="dropdown-divider"></div>
+    <a href="#" class="dropdown-item">
+      <!-- Message Start -->
+      <div class="media">
+        <img src="{{ asset("assets/$theme/dist/img/user3-128x128.jpg") }}" alt="User Avatar"
+          class="img-size-50 img-circle mr-3">
+        <div class="media-body">
+          <h3 class="dropdown-item-title">
+            Nora Silvester
+            <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+          </h3>
+          <p class="text-sm">The subject goes here</p>
+          <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+        </div>
+      </div>
+      <!-- Message End -->
+    </a>
+    <div class="dropdown-divider"></div>
+    <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+    </div>
+    </li> --}}
     <!-- Notifications Dropdown Menu -->
-    <li class="nav-item dropdown">
+    {{-- <li class="nav-item dropdown">
       <a class="nav-link" data-toggle="dropdown" href="#">
         <i class="far fa-bell"></i>
         <span class="badge badge-warning navbar-badge">15</span>
@@ -114,7 +114,7 @@
         <div class="dropdown-divider"></div>
         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
       </div>
-    </li>
+    </li> --}}
 
     <li class="nav-item dropdown user-menu">
       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
@@ -130,8 +130,18 @@
 
           <p>
             {{session()->get('userName') ?? 'Invitado'}} - Web Developer
-            <small>Member since Nov. 2012</small>
+            <small>Rol: {{session()->get('rol_name')}}</small>
           </p>
+        </li>
+        <li class="user-body">
+          <div class="row">
+            @if (session()->get("roles") && count(session()->get("roles")) > 1)
+            <div class="col-xs-6 text-center">
+              <a href="#" class="cambiar-rol">Cambiar Rol</a>
+            </div>
+            @endif
+          </div>
+          <!-- /.row -->
         </li>
         <!-- Menu Footer-->
         <li class="user-footer">
@@ -141,11 +151,11 @@
       </ul>
     </li>
 
-    <li class="dropdown user user-menu">
+    {{-- <li class="dropdown user user-menu">
       <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
         <i class="fas fa-th-large"></i>
       </a>
-    </li>
+    </li> --}}
   </ul>
 </nav>
 <!-- /.navbar -->

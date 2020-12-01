@@ -46,4 +46,12 @@ class LoginController extends Controller
             return redirect('security/login')->withErrors(['error' => 'Este usuario no tiene un rol activo']);
         }
     }
+
+    protected function credentials(Request $request)
+    {
+        return [
+            'uid' => $request->get($this->username()),
+            'password' => $request->get('password'),
+        ];
+    }
 }
