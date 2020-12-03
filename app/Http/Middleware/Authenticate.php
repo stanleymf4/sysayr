@@ -12,10 +12,27 @@ class Authenticate extends Middleware
      * @param  \Illuminate\Http\Request  $request
      * @return string|null
      */
+    protected $guards = ['web', 'lc'];
+
     protected function redirectTo($request)
     {
         if (!$request->expectsJson()) {
             return route('login');
         }
+    }
+
+    protected function authenticate($request, array $guards)
+    {
+        if (empty($this->guards)) {
+            $this->guards = [null];
+        }
+
+        foreach ($this->guards as $guard) {
+            if ($this->auth->guard($guard)->check()) {
+                return $this->auth->shouldUse($guard);
+            }
+        }
+
+        $this->unauthenticated($request, $guards);
     }
 }

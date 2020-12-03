@@ -19,7 +19,7 @@ class Gsbuser extends Authenticatable implements LdapAuthenticatable
     protected $primaryKey = 'gsbuser_id';
 
     protected $fillable = [
-        'gsbuser_login', 'gsbuser_name', 'password', 'gsbuser_email',
+        'gsbuser_login', 'gsbuser_name', 'password', 'gsbuser_email', 'gsbuser_type_auth',
     ];
 
     public function roles()
@@ -29,7 +29,7 @@ class Gsbuser extends Authenticatable implements LdapAuthenticatable
 
     public function setSession($roles)
     {
-        dd('gsbuser');
+
         Session::put([
             'user_id' => $this->gsbuser_id,
             'userName' => $this->gsbuser_name,

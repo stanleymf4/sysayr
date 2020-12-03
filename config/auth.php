@@ -41,16 +41,14 @@ return [
     */
 
     'guards' => [
-        /* 'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ], */
-
         'web' => [
             'driver' => 'session',
             'provider' => 'ldap',
         ],
-
+        'lc' => [
+            'driver'   => 'session',
+            'provider' => 'users',
+        ],
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -76,10 +74,10 @@ return [
     */
 
     'providers' => [
-        /* 'users' => [
+        'users' => [
             'driver' => 'eloquent',
             'model' => Gsbuser::class,
-        ], */
+        ],
         'ldap' => [
             'driver' => 'ldap',
             'model' => LdapRecord\Models\OpenLDAP\User::class,
@@ -93,6 +91,8 @@ return [
                 ],
             ],
         ],
+
+
     ],
 
     /*
